@@ -1,14 +1,15 @@
-package org.studentloan.fp
+package fp.groovy
 
 import org.junit.Test
 
 public class ExpressionsTest {
   @Test
   void testExpression() {
-    tryToReturnAStatement()
+    assert 1 == returnsAnAssignment()
   }
 
-  int tryToReturnAStatement() {
+
+  int returnsAnAssignment() {
     int x = 1
   }
 }

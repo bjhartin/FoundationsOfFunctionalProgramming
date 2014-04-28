@@ -1,4 +1,4 @@
-package org.studentloan.fp;
+package fp.java;
 
 import org.junit.Test;
 

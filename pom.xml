@@ -12,6 +12,7 @@
     <modules>
         <module>languages/groovy</module>
         <module>languages/java</module>
+        <module>languages/scala</module>
     </modules>
 
 </project>
