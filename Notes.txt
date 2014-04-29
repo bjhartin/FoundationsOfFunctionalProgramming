@@ -1,3 +1,6 @@
+Show a program composed purely of expressions, vs. one of statements and expressions.
+
+
 Slide: Purity
 Slide: Currying vs. Partial Application
 Slide: Viewing these techniques as code reuse
@@ -157,6 +160,7 @@ Algebraic data types
 * Creating new type (alias) in Scala using apply/unapply and pattern for existing type with specific members
 * Leveraging the ease of creating such types to make certain errors inexpressible
 * Pattern matching
+* Interning as cacheing of overlapping structures ???
 
 List comprehensions
 -------------------
