@@ -2,7 +2,7 @@ package fp.groovy
 
 import org.junit.Test
 
-public class ExpressionsTest {
+class ExpressionsTest {
   @Test
   void testExpression() {
     assert 1 == returnsAnAssignment()
