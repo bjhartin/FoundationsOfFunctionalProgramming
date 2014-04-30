@@ -30,6 +30,13 @@ class HigherOrderFunctionsTest {
   }
 
   @Test
+  def functionsCanBeAnonymous() {
+    // We pass a function that does not have a name.
+    // Our function checks for odd numbers.
+    assertTrue(checkNumber(3, (number:Int) => {number % 2 != 0}))
+  }
+
+  @Test
   def functionsCanReturnFunctions() {
     val timesFive = multiplyBy(5) //
 
