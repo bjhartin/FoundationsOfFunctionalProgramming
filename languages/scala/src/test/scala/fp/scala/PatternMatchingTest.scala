@@ -103,10 +103,10 @@ class PatternMatchingTest {
   val bigOrder = Order(regularCustomer, List(OrderLine(hammer, 5), OrderLine(wrench, 9)), new Date())
 
 
-  def shippingUpcharge(order: Order): Float = {
+  def shippingUpcharge(order: Order): Double = {
     order match {
-      case Order(Customer(_, Address(_, _, _, "HI", _)), _, _) => 1.5
-      case Order(_, l::ls, _) => 0.9
+      case Order(Customer(_, Address(_, _, _, "HI", _), _), _, _) => 1.5
+      case Order(_, l1::l2::ls, _) => 0.9
       case Order(Customer(_, _, totalOrders), _, _) if totalOrders > 50 => 0.8
       case _ => 1.0
     }
@@ -114,10 +114,12 @@ class PatternMatchingTest {
 
   @Test
   def complexExample(){
-    assertEqual(1.0, shippingUpcharge(regularOrder))
-    assertEqual(1.5, shippingUpcharge(hawaiiOrder))
-    assertEqual(0.9, shippingUpcharge(bigOrder))
-    assertEqual(0.8, shippingUpcharge(goodCustomerOrder))
+    val delta = 0.001  // Needed when comparing floating point numbers
+
+    assertEquals(1.0, shippingUpcharge(regularOrder), delta)
+    assertEquals(1.5, shippingUpcharge(hawaiiOrder), delta)
+    assertEquals(0.9, shippingUpcharge(bigOrder), delta)
+    assertEquals(0.8, shippingUpcharge(goodCustomerOrder), delta)
   }
 
 }
