@@ -27,6 +27,7 @@ class HigherOrderFunctionsTest {
   @Test
   void functionsCanBeAnonymous() {
     assert checkNumber(3, {n -> n % 2 != 0})  // Called lambda expressions in most languages
+    assert checkNumber(3, {it % 2 != 0})  // Can use 'it' when just one arg.
   }
 
   @Test
