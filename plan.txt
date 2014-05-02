@@ -33,6 +33,8 @@ Up next:
   Your table is a function
 	Delivery pipeline idea
 	Review and practice
+	Pragmatic advice: start with ref. trans, pure func. immutability.  Try it in some test code.  Convert some mutable things to immutable, and remove shared state.
+	Spring + func P - constructor injection + immutability
 	
 
   
