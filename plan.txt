@@ -1,0 +1,96 @@
+Plan for tonight:
+
+7:30 - 8:15: Partial Application and Currying
+Read pattern matching stuff
+
+
+Up next: 
+	Finish pattern matching
+  Finish list comprehension example
+  Data types?
+  	* Creating new type (alias) in Scala using apply/unapply and pattern for existing type with specific members
+		* Leveraging the ease of creating such types to make certain errors inexpressible
+		* Pattern matching
+		* Interning as cacheing of overlapping structures ???
+
+  
+  Example of non-functional code, and walk through some common problems
+	  ** The port problem I had when testing
+		** Test data grouped by context
+		** defs instead of shared objects in tests
+  SLIDE: A slide about functions, and a short discussion of problems that stem from not having them?
+  	* Pure functions
+  	* Also a leaky abstraction
+  SLIDE: A discussion of various forms of complexity        
+  SLIDE: lazy evaluation 
+  	strict/eager
+    Include declarative snipped: clarity/correctness vs. performance, Haskell programs 'just work'
+  Discussion of when to use FP, 85% purity, etc.
+  SLIDE: Java 8 examples
+  SLIDE: Applying these concepts in non-functional languages
+  SLIDE: Haskell comparison 
+  Research key claims of Backus' paper
+  Your table is a function
+	Delivery pipeline idea
+	Review and practice
+	
+
+  
+  SLIDE: Who Am I?
+	  * Who am I?
+	  * Background, etc.
+	  * Began using languages with functional aspects in 2006: Ruby -> Groovy -> Scala -> Haskell
+	  ** The functional parts of these languages changed my thinking dramatically
+	  ** I realized that a lot of material on functional programming focuses on the language features, and less on some of the foundations
+	  ** Learning the cross-language foundations made it very easy to learn other languages
+	  ** Eliminated a lot of complexity
+		* Why am I doing this?
+		* What this talk is NOT
+		  * A complete explanation of functional programming
+		  * A 'FP will save the world!' talk
+      
+      
+Guidelines:
+
+- Beware the narrow focus.  For each point, think more broadly to see if I'm omitting or missing something.
+- Do NOT get 'ahead of my knowledge'.  Assume that, for each point, a follow up question or two will be asked.
+- Practice the presentation to see how the time limit feels.
+- Try to switch to code every few slides.
+- Throw in a joke or two.
+- When in doubt, lean on clarifying and exemplifying concepts rather than expounding on benefits
+- Make small claims.
+- Realize that the goal is just to impart a little knowledge.  90 minutes isn't going to change the world.
+- Have sources for all statements that are surprising or controversial, unless they are completely original.  If the latter, have the explanation prepared.
+- Think about how I would explain it to a team member.
+- Write the slide first, then read more - helps build confidence because I will find that I know more than I think.
+
+
+Quotes:
+
+"Eliminating side effects, i.e. changes in state that do not depend on the function inputs, can make it much easier to understand and predict the behavior of a program, which is one of the key motivations for the development of functional programming." - Wikipedia fp
+"An expression is said to be referentially transparent if it can be replaced with its value without changing the behavior of a program (in other words, yielding a program that has the same effects and output on the same input)." - wikipedia fp
+"For example, when programming in C, there will be a performance penalty for including a call to an expensive function inside a loop, even if the function call could be moved outside of the loop without changing the results of the program. The programmer would be forced to perform manual code motion of the call, possibly at the expense of source code readability. However, if the compiler is able to determine that the function call is referentially transparent, it can perform this transformation automatically." - wikipedia referential transparency
+"Purely functional functions (or expressions) have no side effects (memory or I/O). This means that pure functions have several useful properties, many of which can be used to optimize the code:
+"If the result of a pure expression is not used, it can be removed without affecting other expressions.
+"If a pure function is called with arguments that cause no side-effects, the result is constant with respect to that argument list (sometimes called referential transparency), i.e. if the pure function is again called with the same arguments, the same result will be returned (this can enable caching optimizations such as memoization).
+"If there is no data dependency between two pure expressions, then their order can be reversed, or they can be performed in parallel and they cannot interfere with one another (in other terms, the evaluation of any pure expression is thread-safe).
+"If the entire language does not allow side-effects, then any evaluation strategy can be used; this gives the compiler freedom to reorder or combine the evaluation of expressions in a program (for example, using deforestation)." - wikipedia FP
+"Functional programming is very much about using mathematics to reason about programs. To do so, one needs a formalism that describe the programs and how one can make proofs about properties they might have." - Daniel C. Sobral
+
+Examples:
+
+Tests which fail when run in Idea but pass in Maven due to test class ordering
+Tests which cannot be run by themselves due to poor test isolation
+Tests which have to be careful about cleaning up after themselves because of shared resources
+Tests which are flaky due to sensitivity to outside influences such as the date
+Use of closures to guarantee 'before and after' behavior
+Idempotency desired, e.g. calculate new bank balance.  Separate calculation from storage/retrieval.
+Writing code without '='
+Memoizing in groovy
+How it all can fall down if something is mutable
+
+
+Tasks:
+
+- Read "Functional Thinking"
+- Read chapter on Monads in Haskell book
