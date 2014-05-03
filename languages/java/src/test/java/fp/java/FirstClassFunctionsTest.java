@@ -36,6 +36,10 @@ public class FirstClassFunctionsTest {
     // Alternate, more concise, syntax
     Function<String, String> greeter2 = (String name) -> "Hello " + name + "!";
 
+    // Here we create a Runnable function - although 'function' is a loose
+    // usage of the term since it has no arguments and returns nothing.
+    Runnable runnable = () -> System.out.println("I'm running!");
+
     @Test
     public void firstClassFunctionsAreValues() {
         // assertTrue(this::regularGreeter instanceof Function);  // Cannot write this.
