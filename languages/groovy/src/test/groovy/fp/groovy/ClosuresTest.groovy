@@ -3,7 +3,7 @@ package fp.groovy
 import org.junit.Test
 
 class ClosuresTest {
-  Closure addIt() {
+  Closure createAdder() {
     int x = 3
 
     // We return an anonymous function that takes one variable, y.
@@ -17,14 +17,15 @@ class ClosuresTest {
   @Test
   void closuresCanReferenceVariablesInTheirDefiningScope() {
     // x is not in scope here, but the closure retains its binding.
-    assert 8 == addIt()(5)  // Two parens, because addIt() returns a zero-arg function
+    Closure adder = createAdder()
+    assert 8 == adder(5)
   }
 
   @Test
   void closuresCanIntroduceSideEffects() {
     List<String> myList = ["a","b","c"]
     assert ["b", "c"] == removeFirst({return myList})
-//    assert  ["a","b","c"] == myList                                // Oops...will fail!
+    assert  ["b","c"] == myList                                // Oops...it got modified!
   }
 
   List<String> removeFirst(Closure computeList){
