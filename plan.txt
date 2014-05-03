@@ -1,17 +1,21 @@
 Plan for tonight:
 
-7:30 - 8:15: Partial Application and Currying
+
+6:30 - 8:30: Java 8
+8:30 - 10:30: Examples / List Comprehension / Pattern matching wrapup
 Read pattern matching stuff
 
 
 Up next: 
-	Finish pattern matching
-  Finish list comprehension example
+	
   Data types?
   	* Creating new type (alias) in Scala using apply/unapply and pattern for existing type with specific members
 		* Leveraging the ease of creating such types to make certain errors inexpressible
 		* Pattern matching
 		* Interning as cacheing of overlapping structures ???
+	Lazy Evaluation
+		strict/eager
+	    Include declarative snipped: clarity/correctness vs. performance, Haskell programs 'just work'
 
   
   Example of non-functional code, and walk through some common problems
@@ -22,20 +26,16 @@ Up next:
   	* Pure functions
   	* Also a leaky abstraction
   SLIDE: A discussion of various forms of complexity        
-  SLIDE: lazy evaluation 
-  	strict/eager
-    Include declarative snipped: clarity/correctness vs. performance, Haskell programs 'just work'
   Discussion of when to use FP, 85% purity, etc.
   SLIDE: Java 8 examples
-  SLIDE: Applying these concepts in non-functional languages
-  SLIDE: Haskell comparison 
+  SLIDE: Applying these concepts in non-functional languages   
   Research key claims of Backus' paper
   Your table is a function
 	Delivery pipeline idea
 	Review and practice
 	Pragmatic advice: start with ref. trans, pure func. immutability.  Try it in some test code.  Convert some mutable things to immutable, and remove shared state.
 	Spring + func P - constructor injection + immutability
-	
+	Guava
 
   
   SLIDE: Who Am I?
