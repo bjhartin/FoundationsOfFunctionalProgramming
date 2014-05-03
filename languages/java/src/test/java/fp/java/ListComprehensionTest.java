@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-public class StreamComprehensionTest {
+public class ListComprehensionTest {
 
     @Test
     public void filter(){
@@ -25,14 +25,14 @@ public class StreamComprehensionTest {
     }
 
     @Test
-    void foldLeft(){
+    public void foldLeft(){
         Stream<Integer> numbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         assertEquals((Integer) 55, numbers.reduce(0, (n, acc) -> n + acc));
     }
 
     @Test
-    void sort(){
+    public void sort(){
         Stream<String> names = Stream.of("Kim W Green", "Brenda M Brown", "Tom K Smith",  "Paul A Jones");
 
         Comparator<String> middleInitial = (s1, s2) -> s1.split(" ")[1].compareTo(s2.split(" ")[1]);

@@ -50,6 +50,20 @@ Up next:
 		* What this talk is NOT
 		  * A complete explanation of functional programming
 		  * A 'FP will save the world!' talk
+    
+     * Review slides for verbage
+     * More on referential transparency - what does it mean when a computation is not r.t.?  Is this the root reason for a lot of complexity?  What is the 'meaning' of a referentially opaque computation?
+
+     * Practical recommendations for learning/adopting FP:
+       * Forget about the fancy stuff
+       * Take some existing code (perhaps test code)
+         * Make it referentially transparent
+           * Immutability
+           * Pure functions
+         * No shared state
+         * Watch what happens
+
+
       
       
 Guidelines:
