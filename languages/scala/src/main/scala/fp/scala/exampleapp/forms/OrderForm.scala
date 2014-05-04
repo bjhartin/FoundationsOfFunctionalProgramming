@@ -42,9 +42,9 @@ object OrderForm {
       stringMap("city"),
       stringMap("state"),
       stringMap("zip"),
+      stringMap("date"),
       stringMap("sku"),
-      stringMap("quantity"),
-      stringMap("date"))
+      stringMap("quantity"))
   }
 
 }

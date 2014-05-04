@@ -24,11 +24,11 @@ class OrderFormTest {
   }
 
 
-    def orderForm() = OrderForm("johnsmith@domain.com",
-                         "1 Main St", "Des Moines", "IA", "50131",
-                         "2012-04-23T18:25Z",
-                         "6897433574",
-                         "23")
+  def orderForm() = OrderForm("johnsmith@domain.com",
+                       "1 Main St", "Des Moines", "IA", "50131",
+                       "2012-04-23T18:25Z",
+                       "6897433574",
+                       "23")
 
 
   @Test
