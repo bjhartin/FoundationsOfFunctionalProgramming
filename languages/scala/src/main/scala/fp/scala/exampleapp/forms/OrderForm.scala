@@ -17,18 +17,16 @@ case class OrderForm(email: String = "",
 
   def values = List(email, addressLine1, city, state, zip, date, sku, quantity)
 
-  def validate(): Either[OrderForm, Order] = {
+  def validate(): OrderForm = {
     this match {
       case f if !values.filter(isBlank).isEmpty =>
-        Left(f.copy(validationErrors = List("Some required fields missing")))
-      case f => Left(f)
+        f.copy(validationErrors = List("All fields are required"))
+      case f => f
     }
   }
 
   def isBlank(s:String):Boolean = {s == null || s.trim == ""}
 }
-
-
 
 object OrderForm {
   def fromJson(json: String): OrderForm = {
@@ -50,8 +48,18 @@ object OrderForm {
       stringMap("quantity"),
       stringMap("date"))
   }
+
+}
+
+// These allow us to pattern-match based on whether we have validation errors.
+// For example, case InvalidOrderForm(f) => ...
+//
+// If case classes supported inheritance, we wouldn't need these.
+
+object ValidOrderForm {
+  def unapply(o:OrderForm) = if (!o.validationErrors.isEmpty) None else Some(o)
 }
 
 object InvalidOrderForm {
-  def unapply(e: Left[OrderForm, Order]) = e.left.get
+  def unapply(o:OrderForm) = if (o.validationErrors.isEmpty) None else Some(o)
 }

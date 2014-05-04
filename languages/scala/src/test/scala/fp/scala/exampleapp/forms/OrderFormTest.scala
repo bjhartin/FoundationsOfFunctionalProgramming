@@ -3,10 +3,6 @@ package fp.scala.exampleapp.forms
 import org.junit.Test
 import org.junit.Assert._
 
-import scala.util.parsing.json.JSON
-import fp.scala.exampleapp.domain.{Address, Customer, Order}
-import java.util.{GregorianCalendar, Calendar, Date}
-
 class OrderFormTest {
 
   def orderFormJson() = {
@@ -47,22 +43,23 @@ class OrderFormTest {
 
   @Test
   def fromUnparseableJson() {
-    assertEquals(malformedJson(), OrderForm())
+    assertEquals(OrderForm.fromJson(malformedJson()), OrderForm())
   }
 
   @Test
-  def validateOrderWithBadEmail() {
-    val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
-    OrderForm.fromJson(badEmailJson).validate() match {
-      case Left(f:OrderForm) => assertEquals(List("Email is blank"), f.validationErrors)
-      case Right(o:Order) => fail("Order should not be valid")
+  def validateGoodOrder() {
+    OrderForm.fromJson(orderFormJson()).validate() match {
+      case InvalidOrderForm(f) => fail("Order should be valid")
+      case ValidOrderForm(f) => // All is ok
     }
-//    assertTrue(result.isInstanceOf[InvalidOrderForm])
-//    assertEquals(List("Email is blank"), result.left.get.validationErrors)
   }
 
-//  @Test
-//  def validateValidOrder() {
-//    assertEqual(validOrderForm(), OrderForm.fromJson(orderFormJson()))
-//  }
+  @Test
+  def validateOrderWithBlankEmail() {
+    val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
+    OrderForm.fromJson(badEmailJson).validate() match {
+      case InvalidOrderForm(f) => assertEquals(List("All fields are required"), f.validationErrors)
+      case ValidOrderForm(f) => fail("Order should not be valid")
+    }
+  }
 }
