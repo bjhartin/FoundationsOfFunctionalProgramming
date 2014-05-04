@@ -11,7 +11,7 @@ class OrderProcessorTest {
 
   @Test
   def run() {
-    val testFile = createFile(100)
+    val testFile = createFile(2)
     orderProcessor.processOrders(testFile)
   }
 

@@ -7,12 +7,32 @@ import fp.scala.exampleapp.forms.{ValidOrderForm, InvalidOrderForm, OrderForm}
 class OrderProcessor {
 
   def processOrders(orderFile: File) {
-    Source.fromFile(orderFile).getLines().foreach(line => {
-      OrderForm.fromJson(line).validate() match {
-        case InvalidOrderForm(f) => println("invalid")
-        case ValidOrderForm(f) => println("valid")
-      }
+//    val (validOrders, invalidOrders) = Source.fromFile(orderFile)
+//                                              .getLines()
+//                                              .map(OrderForm.fromJson)
+//                                              .partition({case ValidOrderForm(_) => true
+//                                                         case InvalidOrderForm(_) => false})
+
+    val lines = Source.fromFile(orderFile).getLines().grouped(1)
+
+    lines.foreach(batch => {
+      val (validOrders, invalidOrders) = batch.map(OrderForm.fromJson)
+                                              .partition({case ValidOrderForm(_) => true
+                                                       case InvalidOrderForm(_) => false})
+      println(s"Saving ${validOrders.size} valid orders")
+      validOrders.par.map(Order.fromForm).foreach(_.save())
     })
+//
+//      .map(OrderForm.fromJson)
+//      .partition({case ValidOrderForm(_) => true
+//    case InvalidOrderForm(_) => false})
+
+
+//    invalidOrders.foreach(report)
+
+//    println(s"${validOrders.size} valid orders")
+//    println(s"${invalidOrders.size} invalid orders")
+
 
     /*
       Skeletal logic here:

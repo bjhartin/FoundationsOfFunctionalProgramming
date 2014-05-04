@@ -4,7 +4,12 @@ import java.util.Date
 import java.text.SimpleDateFormat
 import fp.scala.exampleapp.forms.OrderForm
 
-case class Order(cust: Customer, item: String, quantity: Int, date: Date)
+case class Order(cust: Customer, item: String, quantity: Int, date: Date) {
+  def save() {
+    println("Saving")
+    Thread.sleep(1000)
+  }
+}
 
 object Order {
   def dateFormat = {
