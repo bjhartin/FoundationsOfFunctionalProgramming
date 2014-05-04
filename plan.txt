@@ -35,7 +35,30 @@ Up next:
 	Review and practice
 	Pragmatic advice: start with ref. trans, pure func. immutability.  Try it in some test code.  Convert some mutable things to immutable, and remove shared state.
 	Spring + func P - constructor injection + immutability
+	How not to introduce func. P.
+	Problems with Java 8 func. P.
+  Why ref. trans. enables certain things.
 	Guava
+	Examples of debugging problems / errors due to non-referentially transparent expressions
+		Examples of how to convert sticky problems to referentially transparent ones
+	Examples of how java / other languages make you compromise (Streams, ranges, functional interfaces, defining functions as curryable, partial application requires special syntax, etc.)
+	Why was parallelization hard?
+		- With Von Neumann langs, had to think about sharing, mutability and time
+		- With ref trans, order doesn't matter
+	
+	
+	* Review slides for verbage
+     * More on referential transparency - what does it mean when a computation is not r.t.?  Is this the root reason for a lot of complexity?  What is the 'meaning' of a referentially opaque computation?
+
+     * Practical recommendations for learning/adopting FP:
+       * Forget about the fancy stuff
+       * Take some existing code (perhaps test code)
+         * Make it referentially transparent
+           * Immutability
+           * Pure functions
+         * No shared state
+         * Watch what happens
+	Note on range types         
 
   
   SLIDE: Who Am I?
@@ -50,20 +73,6 @@ Up next:
 		* What this talk is NOT
 		  * A complete explanation of functional programming
 		  * A 'FP will save the world!' talk
-    
-     * Review slides for verbage
-     * More on referential transparency - what does it mean when a computation is not r.t.?  Is this the root reason for a lot of complexity?  What is the 'meaning' of a referentially opaque computation?
-
-     * Practical recommendations for learning/adopting FP:
-       * Forget about the fancy stuff
-       * Take some existing code (perhaps test code)
-         * Make it referentially transparent
-           * Immutability
-           * Pure functions
-         * No shared state
-         * Watch what happens
-
-
       
       
 Guidelines:

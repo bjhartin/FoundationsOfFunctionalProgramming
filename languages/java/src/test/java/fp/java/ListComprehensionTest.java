@@ -3,8 +3,12 @@ package fp.java;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import static java.util.stream.IntStream.range;
 
 public class ListComprehensionTest {
 
@@ -40,28 +44,50 @@ public class ListComprehensionTest {
         assertArrayEquals(Stream.of("Paul A Jones", "Tom K Smith", "Brenda M Brown", "Kim W Green").toArray(),
                 names.sorted(middleInitial).toArray());
     }
-//
+
+    @Test
+    public void javaForIterationReplacement() {
+        List<Integer> numbers = Arrays.asList(2, 9, 10, 3, 49, 1);
+
+        numbers.forEach(n -> System.out.println(n));
+
+        // Better yet
+        numbers.forEach(System.out::println);
+
+        // No assertion
+    }
+
+    @Test
+    public void javaForLoopRangeReplacement() {
+        // Range statically imported from IntStream
+        range(0, 9).forEach(System.out::println);
+
+        // No assertion
+    }
+
+
+    // These methods don't take higher order functions,
+    // but are still common to FP languages
+
 //    @Test
-//    void partition(){
-//        Stream<Integer> numbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-//
-//        assertArrayEquals(Stream.of([2, 4, 6, 8, 10], [1, 3, 5, 7, 9]) == numbers.split({it % 2 == 0})
+//    public void flatten(){
+//        // No flatten (or similar) method on Stream
+//        // Could do it manually with reduce
 //    }
-//
-//    // These methods don't take higher order functions,
-//    // but are still common to FP languages
-//
+
 //    @Test
-//    void flatten(){
-//        Stream<Integer> numbers = Stream.of([2, 3], [4, 5, 6], [1, 10])
-//
-//        assertArrayEquals(Stream.of(2, 3, 4, 5, 6, 1, 10) == numbers.flatten()
+//    public void partition(){
+//        // No partition (or similar) method on Stream
 //    }
-//
-//    @Test
-//    void unique(){
-//        Stream<Integer> numbers = Stream.of(3, 10, 3, 4, 5, 4)
-//
-//        assertArrayEquals(Stream.of(3, 10, 4, 5) == numbers.unique()
-//    }
+
+    @Test
+    public void unique(){
+        Stream<Integer> numbers = Stream.of(3, 10, 3, 4, 5, 4);
+
+        assertArrayEquals(Stream.of(3, 10, 4, 5).toArray(),
+                numbers.distinct().toArray());
+    }
+
+
+
 }
