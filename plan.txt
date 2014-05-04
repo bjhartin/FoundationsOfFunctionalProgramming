@@ -29,42 +29,36 @@ Up next:
 	Lazy Evaluation
 		strict/eager
 	    Include declarative snipped: clarity/correctness vs. performance, Haskell programs 'just work'
-
   
-  Example of non-functional code, and walk through some common problems
-	  ** The port problem I had when testing
-		** Test data grouped by context
-		** defs instead of shared objects in tests
-  SLIDE: A slide about functions, and a short discussion of problems that stem from not having them?
-  	* Pure functions
-  	* Also a leaky abstraction
-  SLIDE: A discussion of various forms of complexity        
-  Discussion of when to use FP, 85% purity, etc.
-  SLIDE: Java 8 examples
+  Ref Transparency Expansion
+  
+  	What is your first instinct if I said to you, let's parallelize?
+	  Why ref. trans. enables certain things.	
+		Examples of debugging problems / errors due to non-referentially transparent expressions
+		Why was parallelization hard?
+			- With Von Neumann langs, had to think about sharing, mutability and time
+			- With ref trans, order doesn't matter
+	  Example of non-functional code, and walk through some common problems
+		  ** The port problem I had when testing
+			** Test data grouped by context
+			** defs instead of shared objects in tests  
+  	Discussion of when to use FP, 85% purity, etc.
+  	What is 'functional style'?  Poorly defined.
+  	
+  	
   SLIDE: Applying these concepts in non-functional languages   
-  Research key claims of Backus' paper
-  Your table is a function
-	Delivery pipeline idea
-	Review and practice
-	Pragmatic advice: start with ref. trans, pure func. immutability.  Try it in some test code.  Convert some mutable things to immutable, and remove shared state.
-	Spring + func P - constructor injection + immutability
-	How not to introduce func. P.
+	
+	Spring + func P - constructor injection + immutability	
 	Problems with Java 8 func. P.
-  Why ref. trans. enables certain things.
-	Guava
-	Examples of debugging problems / errors due to non-referentially transparent expressions
-		Examples of how to convert sticky problems to referentially transparent ones
+  
+	Examples of how to convert sticky problems to referentially transparent ones
 	Examples of how java / other languages make you compromise (Streams, ranges, functional interfaces, defining functions as curryable, partial application requires special syntax, etc.)
-	Why was parallelization hard?
-		- With Von Neumann langs, had to think about sharing, mutability and time
-		- With ref trans, order doesn't matter
-	What is your first instinct if I said to you, let's parallelize?
 	
 	
 	* Review slides for verbage
      * More on referential transparency - what does it mean when a computation is not r.t.?  Is this the root reason for a lot of complexity?  What is the 'meaning' of a referentially opaque computation?
-
      * Practical recommendations for learning/adopting FP:
+     	 * Start with ref. trans, pure func. immutability.
        * Forget about the fancy stuff
        * Take some existing code (perhaps test code)
          * Make it referentially transparent
@@ -72,12 +66,11 @@ Up next:
            * Pure functions
          * No shared state
          * Watch what happens
+         
 	Note on range types         
-	What is 'functional style'?  Poorly defined.
-	parallelizable == analyzable in isolation == simpler!
-	perhaps express the intentions of some code snippet in english, e.g. "Sum the numbers 1-10"
-	short lambda calculus example
-	composition comment
+	
+	parallelizable == analyzable in isolation == simpler!	
+	short lambda calculus example	
 	why did I use a def in my test data?
 	copying immutable types
 	functor: treating domain object as collection of values

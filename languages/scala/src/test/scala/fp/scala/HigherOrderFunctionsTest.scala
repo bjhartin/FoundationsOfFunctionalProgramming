@@ -24,7 +24,7 @@ class HigherOrderFunctionsTest {
     try {
       f(writer)    //  f doesn’t open or close the file
     } finally {
-      writer.close
+      writer.close()
     }
   }
 
