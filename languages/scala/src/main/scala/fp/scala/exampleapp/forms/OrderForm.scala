@@ -1,8 +1,6 @@
 package fp.scala.exampleapp.forms
 
 import scala.util.parsing.json.JSON
-import fp.scala.exampleapp.domain.Order
-
 
 case class OrderForm(email: String = "",
                       addressLine1: String = "",
