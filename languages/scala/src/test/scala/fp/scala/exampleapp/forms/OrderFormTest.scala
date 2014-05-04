@@ -4,7 +4,8 @@ import org.junit.Test
 import org.junit.Assert._
 
 import scala.util.parsing.json.JSON
-import fp.scala.exampleapp.domain.Order
+import fp.scala.exampleapp.domain.{Address, Customer, Order}
+import java.util.{GregorianCalendar, Calendar, Date}
 
 class OrderFormTest {
 
@@ -21,14 +22,21 @@ class OrderFormTest {
       |}
     """.stripMargin
 
+//  def order() = Order(Customer("johnsmith@domain.com",
+//                       Address("1 Main St", "Des Moines", "IA", "50131")),
+//                       "6897433574",
+//                       23,
+//                       new GregorianCalendar(2012, 3, 23, 18, 25).getTime) // April is 3 in GregorianCalendar
+
+    def orderForm() = OrderForm("johnsmith@domain.com",
+                         "1 Main St", "Des Moines", "IA", "50131",
+                         "6897433574",
+                         "23",
+                         "2012-04-23T18:25Z")
+
 
   @Test
   def fromJson() {
-    val result: Option[Order] = OrderForm.fromJson(orderFormJson())
-
-    result match {
-      case Some(o) => assertEquals("johnsmith@domain.com", o.cust.email)
-      case None => fail("Order parsing failed")
-    }
+    assertEquals(orderForm(), OrderForm.fromJson(orderFormJson()))
   }
 }
