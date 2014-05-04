@@ -2,12 +2,16 @@ package fp.scala.exampleapp.domain
 
 import java.io.File
 import scala.io.Source
+import fp.scala.exampleapp.forms.{ValidOrderForm, InvalidOrderForm, OrderForm}
 
 class OrderProcessor {
 
   def processOrders(orderFile: File) {
-    List lines = Source.fromFile(orderFile).getLines().foreach(line => {
-
+    Source.fromFile(orderFile).getLines().foreach(line => {
+      OrderForm.fromJson(line).validate() match {
+        case InvalidOrderForm(f) => println("invalid")
+        case ValidOrderForm(f) => println("valid")
+      }
     })
 
     /*

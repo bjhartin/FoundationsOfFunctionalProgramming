@@ -23,13 +23,13 @@ case class OrderForm(email: String = "",
     }
   }
 
-  def isBlank(s:String):Boolean = {s == null || s.trim == ""}
+  private def isBlank(s:String):Boolean = {s == null || s.trim == ""}
 }
 
 object OrderForm {
   def fromJson(json: String): OrderForm = {
     JSON.parseFull(json) match {
-      case Some(parsed:Map[String, Any]) => fromMap(parsed)
+      case Some(parsed:Map[String, Any]) => fromMap(parsed).validate()
       case _ => OrderForm()
     }
   }
