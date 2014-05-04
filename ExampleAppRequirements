@@ -25,6 +25,8 @@ A JSON file containing order data must be validated using the following rules:
 - Address line 2 is optional
 - Quantity must be greater than zero
 - Email, state, SKU and zip must be syntactically valid
+- Duplicate orders should be coalesced (including summing quantities)
+- Sku and customer email must match data from stores
 
 Story: Application stores valid orders
 
@@ -36,7 +38,23 @@ All valid orders should be sent to the processor.
 
 Story: Application sends response message.
 
-Story 2: Customer submits file of orders
+Story: Customer submits file of orders
 
 The customer uploads a file containing order for processing.
 
+Story: Produce a report with totals / results
+
+
+
+
+Coding tasks:
+
+0. Read the file
+1. Parse the JSON
+2. Validate each row and
+	3. Process valid rows
+	4. Report invalid rows
+3. Summarize
+4. Accept via HTTP
+5. Respond via HTTP	
+	

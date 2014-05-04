@@ -78,7 +78,7 @@ Up next:
 	perhaps express the intentions of some code snippet in english, e.g. "Sum the numbers 1-10"
 	short lambda calculus example
 	composition comment
-	
+	why did I use a def in my test data?
 	
 
   
