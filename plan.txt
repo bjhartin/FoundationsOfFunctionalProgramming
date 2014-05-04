@@ -79,6 +79,8 @@ Up next:
 	short lambda calculus example
 	composition comment
 	why did I use a def in my test data?
+	copying immutable types
+	functor: treating domain object as collection of values
 	
 
   
