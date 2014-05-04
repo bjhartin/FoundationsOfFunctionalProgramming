@@ -2,11 +2,7 @@ package fp.scala
 
 import org.junit.Test
 import org.junit.Assert._
-import fp.java._
-import fp.java.Customer
-import fp.java.InventoryItem
-import fp.java.Order
-import fp.java.Address
+import fp.scala.exampleapp.domain._
 import java.util.Date
 
 class PatternMatchingTest {

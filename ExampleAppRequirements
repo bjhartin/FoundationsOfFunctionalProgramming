@@ -1,0 +1,42 @@
+Example app requirements
+------------------------
+
+Story: Application reports invalid orders.
+
+A JSON file containing order data must be validated using the following rules:
+
+- All orders must have the following fields:
+	Customer
+		Customer email
+		Customer first name
+		Customer last name
+		Customer address
+			line 1
+			line 2
+			city
+			state
+			zip		
+	Order date
+	Inventory item SKU#  (String)
+	Quantity
+	Delivery date
+
+- Fields must be syntactically valid for their appropriate types (listed above where not obvious)
+- Address line 2 is optional
+- Quantity must be greater than zero
+- Email, state, SKU and zip must be syntactically valid
+
+Story: Application stores valid orders
+
+All valid orders should be persisted to the database.
+
+Story: Application triggers order processing for valid orders.
+
+All valid orders should be sent to the processor.
+
+Story: Application sends response message.
+
+Story 2: Customer submits file of orders
+
+The customer uploads a file containing order for processing.
+

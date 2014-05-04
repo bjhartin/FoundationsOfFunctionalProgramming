@@ -1,7 +1,20 @@
-Plan for tonight:
+Plan for today:
+
+add example for java 8 lambda's check for mutable vars
+
+12:30 - 3:30: Code example in non-FP style, with discussion questions
+  - What if I rearrange these two lines?
+  - What if I test this method by providing its arguments
+  - Can I pull something out of a loop?
+  - Can I parallelize this  
+  - Model computation in pure domain terms
+  
+3:30 - 6:30 Cleanup missing examples
+6:30 - 8:30 Review verbage, add missing points
+9:30 - 11:00 Runthrough #1  
 
 
-6:30 - 8:30: Java 8
+
 8:30 - 10:30: Examples / List Comprehension / Pattern matching wrapup
 Read pattern matching stuff
 
@@ -45,6 +58,7 @@ Up next:
 	Why was parallelization hard?
 		- With Von Neumann langs, had to think about sharing, mutability and time
 		- With ref trans, order doesn't matter
+	What is your first instinct if I said to you, let's parallelize?
 	
 	
 	* Review slides for verbage
@@ -59,6 +73,13 @@ Up next:
          * No shared state
          * Watch what happens
 	Note on range types         
+	What is 'functional style'?  Poorly defined.
+	parallelizable == analyzable in isolation == simpler!
+	perhaps express the intentions of some code snippet in english, e.g. "Sum the numbers 1-10"
+	short lambda calculus example
+	composition comment
+	
+	
 
   
   SLIDE: Who Am I?

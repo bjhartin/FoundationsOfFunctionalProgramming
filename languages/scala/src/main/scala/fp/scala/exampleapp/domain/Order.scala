@@ -1,4 +1,4 @@
-package fp.java
+package fp.scala.exampleapp.domain
 
 import java.util.Date
 
