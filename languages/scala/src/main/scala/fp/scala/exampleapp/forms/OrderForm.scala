@@ -1,6 +1,5 @@
 package fp.scala.exampleapp.forms
 
-import fp.scala.exampleapp.domain.Order
 import scala.util.parsing.json.JSON
 
 
@@ -22,15 +21,15 @@ object OrderForm {
   }
 
   def fromMap(map: Map[String, Any]): OrderForm = {
-    OrderForm(to_s(map("email")),
-      to_s(map("address")),
-      to_s(map("city")),
-      to_s(map("state")),
-      to_s(map("zip")),
-      to_s(map("sku")),
-      to_s(map("quantity")),
-      to_s(map("date")))
+    val stringMap: Map[String, String] = map.mapValues(_.toString)
+    
+    OrderForm(stringMap("email"),
+      stringMap("address"),
+      stringMap("city"),
+      stringMap("state"),
+      stringMap("zip"),
+      stringMap("sku"),
+      stringMap("quantity"),
+      stringMap("date"))
   }
-
-  def to_s(a: Any) = a.asInstanceOf[String]
 }
