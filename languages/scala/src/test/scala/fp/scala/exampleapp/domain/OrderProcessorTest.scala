@@ -40,6 +40,8 @@ class OrderProcessorTest {
     assertEquals(3, orderSummary.invalidOrders.size)
   }
 
+  /* These cases are just to demonstrate some performance/parallelization concepts
+
   @Test
   def processAllValidOrders2() {
     val testFile = createTestOrdersFile(file, 5, 0)
@@ -71,6 +73,8 @@ class OrderProcessorTest {
     assertEquals(5, orderSummary.savedOrders.size)
     assertEquals(Nil, orderSummary.invalidOrders)
   }
+
+  */
 
 //  @Test
 //  def hmmmProblem() {
