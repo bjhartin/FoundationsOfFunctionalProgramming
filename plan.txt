@@ -92,6 +92,25 @@ Up next:
 		* What this talk is NOT
 		  * A complete explanation of functional programming
 		  * A 'FP will save the world!' talk
+
+Notes:
+
+- Mathematical properties: describe mapping things to categories / property of discovering behavior when mapped to other categories
+- Declarative programming: a trend as computers get faster
+- Higher order functions: FP big idea - simplifying things by getting rid of extraneous concepts/divisions: statements vs. expressions, functions vs. values.  Remember - everything is an object?
+
+
+
+- Things to check:
+
+  * Expressions vs Statements
+  * List comprehensions
+  * Java 8 mutability checks for lambdas
+  * All examples
+  * Do we still want the 'FP Big Idea' sections?
+
+
+
       
       
 Guidelines:
