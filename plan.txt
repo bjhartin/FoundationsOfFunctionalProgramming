@@ -1,129 +1,62 @@
 Plan for today:
 
-add example for java 8 lambda's check for mutable vars
-
-12:30 - 3:30: Code example in non-FP style, with discussion questions
-  - What if I rearrange these two lines?
-  - What if I test this method by providing its arguments
-  - Can I pull something out of a loop?
-  - Can I parallelize this  
-  - Model computation in pure domain terms
-  
-3:30 - 6:30 Cleanup missing examples
-6:30 - 8:30 Review verbage, add missing points
-9:30 - 11:00 Runthrough #1  
-
-
-
-8:30 - 10:30: Examples / List Comprehension / Pattern matching wrapup
-Read pattern matching stuff
-
-
 Up next: 
-	
-  Data types?
-  	* Creating new type (alias) in Scala using apply/unapply and pattern for existing type with specific members
-		* Leveraging the ease of creating such types to make certain errors inexpressible
-		* Pattern matching
-		* Interning as cacheing of overlapping structures ???
-	Lazy Evaluation
-		strict/eager
-	    Include declarative snipped: clarity/correctness vs. performance, Haskell programs 'just work'
+	* List comprehensions - check accuracy !
+  * Example of deconstruction
+  		* Interning as cacheing of overlapping structures ???
+	* Add test to show Java 8 mutability checks for lambdas
+  * Lazy evaluation comments
+  * Double check all examples
+  * Show using unapply to define additional cases for pattern matching
+  * Does pattern matching require immutability?    
   
-  Ref Transparency Expansion
-  
-  	What is your first instinct if I said to you, let's parallelize?
-	  Why ref. trans. enables certain things.	
-		Examples of debugging problems / errors due to non-referentially transparent expressions
-		Why was parallelization hard?
-			- With Von Neumann langs, had to think about sharing, mutability and time
-			- With ref trans, order doesn't matter
-	  Example of non-functional code, and walk through some common problems
-		  ** The port problem I had when testing
-			** Test data grouped by context
-			** defs instead of shared objects in tests  
-  	Discussion of when to use FP, 85% purity, etc.
-  	What is 'functional style'?  Poorly defined.
-  	
-  	
-  SLIDE: Applying these concepts in non-functional languages   
+  * Do I need to add anything to the Von Neumann Languages page?
+  * Can I have more examples of converting code to pure func? - maybe a slide?
+  * Where to add the item about FP's core value being simplicity
+  * Expressions vs Statements - check for more  
+  * Do we still want the 'FP Big Idea' sections?
 	
-	Spring + func P - constructor injection + immutability	
-	Problems with Java 8 func. P.
-  
-	Examples of how to convert sticky problems to referentially transparent ones
-	Examples of how java / other languages make you compromise (Streams, ranges, functional interfaces, defining functions as curryable, partial application requires special syntax, etc.)
-	
-	
-	* Review slides for verbage
-     * More on referential transparency - what does it mean when a computation is not r.t.?  Is this the root reason for a lot of complexity?  What is the 'meaning' of a referentially opaque computation?
-     * Practical recommendations for learning/adopting FP:
-     	 * Start with ref. trans, pure func. immutability.
-       * Forget about the fancy stuff
-       * Take some existing code (perhaps test code)
-         * Make it referentially transparent
-           * Immutability
-           * Pure functions
-         * No shared state
-         * Watch what happens
-     
-  Definitely hit on how easy it is to analyze functional code   
-  single responsibility principle to the extreme
-         
-	Note on range types         
-	
-	parallelizable == analyzable in isolation == simpler!	
-	short lambda calculus example	
-	why did I use a def in my test data?
-	copying immutable types
-	functor: treating domain object as collection of values
-	
-
-  
-  SLIDE: Who Am I?
-	  * Who am I?
-	  * Background, etc.
-	  * Began using languages with functional aspects in 2006: Ruby -> Groovy -> Scala -> Haskell
-	  ** The functional parts of these languages changed my thinking dramatically
-	  ** I realized that a lot of material on functional programming focuses on the language features, and less on some of the foundations
-	  ** Learning the cross-language foundations made it very easy to learn other languages
-	  ** Eliminated a lot of complexity
-		* Why am I doing this?
-		* What this talk is NOT
-		  * A complete explanation of functional programming
-		  * A 'FP will save the world!' talk
-
 Notes:
 
 - Mathematical properties: describe mapping things to categories / property of discovering behavior when mapped to other categories
+- Why is parallelization hard?
+  - Mutability, shared state
+  - Not pure functions
+- Referential transparency: analyzable in isolation
 - Declarative programming: a trend as computers get faster
+- Immutability: Spring, constructor injection, spring + scala
+- Purity: 100% not realistic
 - Higher order functions: FP big idea - simplifying things by getting rid of extraneous concepts/divisions: statements vs. expressions, functions vs. values.  Remember - everything is an object?
-
-
-
-- Things to check:
-
-  * Expressions vs Statements
-  * List comprehensions
-  * Java 8 mutability checks for lambdas
-  * All examples
-  * Do we still want the 'FP Big Idea' sections?
-
-
+- Language examples:
+	- Compromises (Streams, ranges, functional interfaces, defining functions as curryable, partial application requires special syntax, etc.)
+- Code example: 
+  - Show basic overview
+  - Show order processor
+  	- Immutability, higher order functions
+  - Show test isolation problem
+  - Show test speed problem
+  - Show production code speed problem
+- Practical advice
+  - Focus on ref. transp., immutability, pure functions
+  - Try it with test code
+  - Turn on random run order
+  - Turn on parallel execution
+- Functional thinking
+  - Test data grouped by context
+  - Test data as defs  
+- (Somewhere) FP Big idea: making errors inexpressible
 
       
       
 Guidelines:
 
 - Beware the narrow focus.  For each point, think more broadly to see if I'm omitting or missing something.
-- Do NOT get 'ahead of my knowledge'.  Assume that, for each point, a follow up question or two will be asked.
+- Do NOT get 'ahead of my knowledge'.
 - Practice the presentation to see how the time limit feels.
-- Try to switch to code every few slides.
 - Throw in a joke or two.
 - When in doubt, lean on clarifying and exemplifying concepts rather than expounding on benefits
 - Make small claims.
 - Realize that the goal is just to impart a little knowledge.  90 minutes isn't going to change the world.
-- Have sources for all statements that are surprising or controversial, unless they are completely original.  If the latter, have the explanation prepared.
 - Think about how I would explain it to a team member.
 - Write the slide first, then read more - helps build confidence because I will find that I know more than I think.
 
