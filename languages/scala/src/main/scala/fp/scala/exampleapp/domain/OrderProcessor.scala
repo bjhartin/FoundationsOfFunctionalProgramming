@@ -12,11 +12,11 @@ class OrderProcessor {
   // Has a slight defect in that it loads all lines into memory, which
   // you can overcome using the 'grouped' method on the iterator
   // returned by 'getLines()'.
-  def processOrders1(orderFile: File):OrderSummary = {
+  def processOrders(orderFile: File):OrderSummary = {
     val lines = Source.fromFile(orderFile).getLines().toList
     val orderForms = lines.map(OrderForm.fromJson)
     val (validOrders, invalidOrders) = orderForms.partition(_.isValid())
-    val savedOrders = validOrders.map(Order.fromForm(_).save())
+    val savedOrders = validOrders.map(Order.fromForm(_).save()).toList  // try validOrders.par
     OrderSummary(savedOrders, invalidOrders)
   }
 
@@ -30,16 +30,21 @@ class OrderProcessor {
                                         .toList
                                         .map(OrderForm.fromJson)
                                         .partition(_.isValid())
-    val savedOrders = validOrders.map(Order.fromForm(_).save())
+    val savedOrders = validOrders.map(Order.fromForm(_).save()).toList // try validOrders.par
     OrderSummary(savedOrders, invalidOrders)
   }
 
-  def processOrders(orderFile: File):OrderSummary = {
+
+  // This version overcomes the memory problem from loading all lines at
+  // once, using the 'grouped' method, but at the cost of requiring vars
+  // so that we can re-assign the running totals.  Folds are the usual
+  // way of keeping an accumulation while iterating, but they are not
+  // parallelized.  There is an aggregate() function which might work.
+  def processOrders3(orderFile: File):OrderSummary = {
     var savedOrders = List[Order]()
     var invalidOrders = List[OrderForm]()
 
-    val iterator = Source.fromFile(orderFile).getLines().grouped(10)
-      iterator.foreach(batch => {
+    Source.fromFile(orderFile).getLines().grouped(10).foreach(batch => {
         val (validForBatch, invalidForBatch) = batch
                                                .par
                                                .map(OrderForm.fromJson)
@@ -52,14 +57,4 @@ class OrderProcessor {
 
   }
 
-  /*
-  val iterator = Source.fromFile(orderFile).getLines().grouped(10)
-    iterator.foreach(batch => {
-      val (validOrders, invalidOrders) = batch.map(OrderForm.fromJson)
-                                              .partition({case ValidOrderForm(_) => true
-                                                       case InvalidOrderForm(_) => false})
-      println(s"Saving ${validOrders.size} valid orders")
-      validOrders.par.map(Order.fromForm).foreach(_.save())
-    })
-   */
 }
