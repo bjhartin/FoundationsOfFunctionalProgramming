@@ -1,20 +1,87 @@
 package fp.scala.exampleapp.domain
 
-import org.junit.{Test, Rule}
+import org.junit.{Before, After, Test, Rule}
+import org.junit.Assert._
 
 import java.io.{File, PrintWriter}
 
 class OrderProcessorTest {
-  def tempFile() = {File.createTempFile("orders", "json")}
+//  var file:File = null
+//
+//  @Before
+//  def setup() {
+//    file = new File(System.getProperty("java.io.tmpdir") +
+//                    File.separator + "orders.json")
+//
+//  }
+
+//  @After
+//  def teardown() {    
+//    assertTrue("Could not delete file!", file.delete())
+//  }
+
+  def file() = {File.createTempFile("orders", "json")}
 
   def orderProcessor = new OrderProcessor()
 
   @Test
-  def run() {
-    val testFile = createFile(2)
-    orderProcessor.processOrders(testFile)
+  def processAllValidOrders() {
+    val testFile = createTestOrdersFile(file, 5, 0)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(Nil, orderSummary.invalidOrders)
   }
 
+  @Test
+  def processInvalidOrders() {
+    val testFile = createTestOrdersFile(file, 5, 3)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(3, orderSummary.invalidOrders.size)
+  }
+
+  @Test
+  def processAllValidOrders2() {
+    val testFile = createTestOrdersFile(file, 5, 0)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(Nil, orderSummary.invalidOrders)
+  }
+
+  @Test
+  def processAllValidOrders3() {
+    val testFile = createTestOrdersFile(file, 5, 0)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(Nil, orderSummary.invalidOrders)
+  }
+
+  @Test
+  def processAllValidOrders4() {
+    val testFile = createTestOrdersFile(file, 5, 0)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(Nil, orderSummary.invalidOrders)
+  }
+
+  @Test
+  def processAllValidOrders5() {
+    val testFile = createTestOrdersFile(file, 5, 0)
+    val orderSummary = orderProcessor.processOrders(testFile)
+    assertEquals(5, orderSummary.savedOrders.size)
+    assertEquals(Nil, orderSummary.invalidOrders)
+  }
+
+//  @Test
+//  def hmmmProblem() {
+//    val testFile = createFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(0, orderSummary.invalidOrders.size)
+//    file.delete()
+//  }
+
+  
   def orderJson(i:Int) = {
     s"""{
       "email":         "customer$i@domain.com",
@@ -29,10 +96,14 @@ class OrderProcessorTest {
     """.replaceAll("[\n\r]", "").replaceAll("([\\{,:]) *", "$1 ")
   }
 
-  def createFile(size:Int):File = {
-    val file = tempFile()
+  def invalidOrderJson(i:Int) = {
+    orderJson(i).replace("IA","")
+  }
+
+  def createTestOrdersFile(file:File, validOrders:Int, invalidOrders:Int):File = {
     doWithWriter(file, writer => {
-      (1 to size).foreach((i:Int) => writer.write(orderJson(i) + "\n"))
+      (1 to validOrders).foreach((i:Int) => writer.write(orderJson(i) + "\n"))
+      (1 to invalidOrders).foreach((i:Int) => writer.write(invalidOrderJson(i) + "\n"))
     })
     file
   }

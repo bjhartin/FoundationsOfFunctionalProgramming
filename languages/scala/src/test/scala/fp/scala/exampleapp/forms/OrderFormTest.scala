@@ -51,4 +51,16 @@ class OrderFormTest {
       case ValidOrderForm(f) => fail("Order should not be valid")
     }
   }
+
+  @Test
+  def isValidForBadOrder() {
+    val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
+    assertFalse(OrderForm.fromJson(badEmailJson).isValid())
+  }
+
+  @Test
+  def isValidForGoodOrder() {
+    val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
+    assertFalse(OrderForm.fromJson(badEmailJson).isValid())
+  }
 }

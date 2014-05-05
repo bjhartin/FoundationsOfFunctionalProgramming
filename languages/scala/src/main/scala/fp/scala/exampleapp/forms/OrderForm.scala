@@ -23,6 +23,8 @@ case class OrderForm(email: String = "",
     }
   }
 
+  def isValid() = validate().validationErrors.isEmpty
+
   private def isBlank(s:String):Boolean = {s == null || s.trim == ""}
 }
 

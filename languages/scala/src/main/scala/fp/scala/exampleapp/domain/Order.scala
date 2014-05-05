@@ -5,9 +5,10 @@ import java.text.SimpleDateFormat
 import fp.scala.exampleapp.forms.OrderForm
 
 case class Order(cust: Customer, item: String, quantity: Int, date: Date) {
-  def save() {
+  def save(): Order = {
     println("Saving")
     Thread.sleep(1000)
+    this
   }
 }
 
