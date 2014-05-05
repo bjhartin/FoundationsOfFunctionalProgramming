@@ -15,6 +15,7 @@ Up next:
   * Where to add the item about FP's core value being simplicity
   * Expressions vs Statements - check for more  
   * Do we still want the 'FP Big Idea' sections?
+  * Add Java 8 examples in the slides
 	
 Notes:
 
@@ -23,6 +24,7 @@ Notes:
   - Mutability, shared state
   - Not pure functions
 - Referential transparency: analyzable in isolation
+- (Somewhere): Example about proofs - what if we change a 'given'?
 - Declarative programming: a trend as computers get faster
 - Immutability: Spring, constructor injection, spring + scala
 - Purity: 100% not realistic
