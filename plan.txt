@@ -66,6 +66,9 @@ Up next:
            * Pure functions
          * No shared state
          * Watch what happens
+     
+  Definitely hit on how easy it is to analyze functional code   
+  single responsibility principle to the extreme
          
 	Note on range types         
 	
