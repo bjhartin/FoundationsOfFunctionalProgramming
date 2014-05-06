@@ -41,6 +41,110 @@ class OrderProcessorTest {
   }
 
 //  @Test
+//  def processAllValidOrders2() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders3() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders5() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders6() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders7() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders8() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processInvalidOrders9() {
+//    val testFile = createTestOrdersFile(file, 5, 3)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(3, orderSummary.invalidOrders.size)
+//  }
+//
+//  @Test
+//  def processAllValidOrders10() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders11() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders12() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders13() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders14() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+//
+//  @Test
+//  def processAllValidOrders15() {
+//    val testFile = createTestOrdersFile(file, 5, 0)
+//    val orderSummary = orderProcessor.processOrders(testFile)
+//    assertEquals(5, orderSummary.savedOrders.size)
+//    assertEquals(Nil, orderSummary.invalidOrders)
+//  }
+
+    //  @Test
 //  def testIsolationProblem() {
 //    val testFile = createFile(file, 5, 0)
 //    val orderSummary = orderProcessor.processOrders(testFile)

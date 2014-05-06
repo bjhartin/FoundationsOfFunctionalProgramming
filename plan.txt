@@ -1,34 +1,55 @@
-Plan for today:
+
 
 Up next: 
-	* List comprehensions - check accuracy !
-  * Example of deconstruction
-  		* Interning as cacheing of overlapping structures ???
-	* Add test to show Java 8 mutability checks for lambdas
-  * Lazy evaluation comments
-  * Double check all examples
-  * Show using unapply to define additional cases for pattern matching
-  * Does pattern matching require immutability?    
+
+  (15 min) Add test to show Java 8 mutability checks for lambdas
+  (30 min) Double check all examples
+  (10 min) Research: Does pattern matching require immutability?    
+  
+Complexity examples:
+
+ - Shared state 
+  - I don't know what influences the behavior of this function.
+  - I'm not sure how to recreate the steps that lead to the execution of this function (that produced an error)
+  - I don't know if this test will behave the same if I run it alone or with the full test suite
+
+- Mutable state
+  - I don't know what effects this method has
+  - It seems that this test affects a subsequent test
+  - It seems like the order of these things are important, but I'm not sure why
+  - Running that method caused a problem somewhere else
+  - I'm not sure if I can cache this
+  - I have to mark this context as 'dirty'
+
+(Outside your program)
+
+  - I'm not sure how to reproduce that computer
+  - I have to be careful about the shared development database
+  - 
+
+- Sequencing
+  - These things depend on each other - why do I have to hand-order them?
+  - I have to order these statements in a specific way
+  - I'm not sure if I can safely reorder these statements
+
+
+       
   
   * Do I need to add anything to the Von Neumann Languages page?
+
   * Can I have more examples of converting code to pure func? - maybe a slide?
+  
   * Where to add the item about FP's core value being simplicity
   * Expressions vs Statements - check for more  
-  * Do we still want the 'FP Big Idea' sections?
+  * Do we still want the 'FP Big Idea' sections?  
   * Add Java 8 examples in the slides
   * Improve fold examples / visual representation
   * Flesh out orders example with sorting, dup. removal, etc.
   * Pattern matching should say 'not limited by type'
-  * Partial application before pattern matching
-  * Currying slide
   * Big code example comes after currying
-  * Java 8 examples on slides
-  * Range types, comments about lazy evaluation
-  * Show '(In)ValidOrder' case for pattern match
   * Create test isolation problem
-  
-  
-  
+
+   
   Review notes from order processor:
   
   
@@ -64,12 +85,20 @@ Up next:
 	
 Notes:
 
+- Tonight's presentation
+  - Going to see simple examples in a few languages, will not get too far into languages themselves
+  - Going to focus on FP fundamentals
 
 - A Leaky Abstraction ?
   - Allows for fine-grained control over program performance
   
 - Von Neumann Languages
   - Von Neumann Architecture (1945) - Control unit, arithmetic logic unit, memory communicate over buses.  Keeps programs and data in main memory.  
+  - FP made me look at imperative languages differently
+    - Saw certain things as complexity, which I didn't see before
+    - Understood FP in terms of its power to simplify
+
+Compexity != difficulty != non-familiarity
 
 
 - Mathematical properties: describe mapping things to categories / property of discovering behavior when mapped to other categories
@@ -93,6 +122,7 @@ Notes:
   - Show production code speed problem
 - Pattern matching
   - Immutability allows deconstruction / a thing is identified by its initial values
+  - Show unapply usage
 - Practical advice
   - Focus on ref. transp., immutability, pure functions
   - Try it with test code

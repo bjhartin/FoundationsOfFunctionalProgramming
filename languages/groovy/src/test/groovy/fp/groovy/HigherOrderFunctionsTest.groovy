@@ -7,11 +7,15 @@ class HigherOrderFunctionsTest {
     number % 2 == 0
   }
 
+  Closure isOdd = {number -> number % 2 != 0}
+
   Closure multiplyBy(int multiplier) {
     {number ->
       number * multiplier
     }
   }
+
+
 
   boolean checkNumber(int number, Closure check) {
     check(number)
@@ -22,6 +26,8 @@ class HigherOrderFunctionsTest {
     // In order to treat the function as a value, we have to use 'this.&'.
     assert checkNumber(2, this.&isEven)
     assert !checkNumber(3, this.&isEven)
+
+    assert checkNumber(3, isOdd) // Using different syntax
   }
 
   @Test

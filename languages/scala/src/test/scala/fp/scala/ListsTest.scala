@@ -3,7 +3,13 @@ package fp.scala
 import org.junit.Test
 import org.junit.Assert._
 
-class ListComprehensionsTest {
+class ListsTest {
+  @Test
+  def listComprehension() {
+    val doubledEvents = for(n  <-  (1 to 10) if n % 2 == 0) yield n * 2
+    assertEquals(List(4, 8, 12, 16, 20), doubledEvents)
+  }
+
   @Test
   def filter() {
     val numbers = List(1, 34, 63, 2, 81, 19, 45, 51, 11, 9, 10, 27)

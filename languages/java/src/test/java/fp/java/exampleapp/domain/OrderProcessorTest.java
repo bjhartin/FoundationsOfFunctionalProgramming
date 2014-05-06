@@ -27,6 +27,14 @@ public class OrderProcessorTest {
     }
 
     @Test
+    public void processValidOrders() throws IOException, ParseException {
+        createTestOrdersFile(file, 5, 0);
+        OrderSummary orderSummary = orderProcessor.processOrders(file);
+        assertEquals(5, orderSummary.getSavedOrders().size());
+        assertEquals(0, orderSummary.getInvalidOrders().size());
+    }
+
+    @Test
     public void processInvalidOrders() throws IOException, ParseException {
         createTestOrdersFile(file, 5, 3);
         OrderSummary orderSummary = orderProcessor.processOrders(file);

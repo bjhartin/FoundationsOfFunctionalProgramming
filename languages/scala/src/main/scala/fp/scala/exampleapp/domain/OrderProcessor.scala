@@ -11,7 +11,8 @@ class OrderProcessor {
                                         .getLines()
                                         .toList
                                         .map(OrderForm.fromJson)
-                                        .partition(_.isValid())
+                                        .partition(f => f.isValid())
+    println("saving orders")
     val savedOrders = validOrders.map(Order.fromForm(_).save()).toList // try validOrders.par
     OrderSummary(savedOrders, invalidOrders)
   }
