@@ -40,44 +40,8 @@ class OrderProcessorTest {
     assertEquals(3, orderSummary.invalidOrders.size)
   }
 
-  /* These cases are just to demonstrate some performance/parallelization concepts
-
-  @Test
-  def processAllValidOrders2() {
-    val testFile = createTestOrdersFile(file, 5, 0)
-    val orderSummary = orderProcessor.processOrders(testFile)
-    assertEquals(5, orderSummary.savedOrders.size)
-    assertEquals(Nil, orderSummary.invalidOrders)
-  }
-
-  @Test
-  def processAllValidOrders3() {
-    val testFile = createTestOrdersFile(file, 5, 0)
-    val orderSummary = orderProcessor.processOrders(testFile)
-    assertEquals(5, orderSummary.savedOrders.size)
-    assertEquals(Nil, orderSummary.invalidOrders)
-  }
-
-  @Test
-  def processAllValidOrders4() {
-    val testFile = createTestOrdersFile(file, 5, 0)
-    val orderSummary = orderProcessor.processOrders(testFile)
-    assertEquals(5, orderSummary.savedOrders.size)
-    assertEquals(Nil, orderSummary.invalidOrders)
-  }
-
-  @Test
-  def processAllValidOrders5() {
-    val testFile = createTestOrdersFile(file, 5, 0)
-    val orderSummary = orderProcessor.processOrders(testFile)
-    assertEquals(5, orderSummary.savedOrders.size)
-    assertEquals(Nil, orderSummary.invalidOrders)
-  }
-
-  */
-
 //  @Test
-//  def hmmmProblem() {
+//  def testIsolationProblem() {
 //    val testFile = createFile(file, 5, 0)
 //    val orderSummary = orderProcessor.processOrders(testFile)
 //    assertEquals(5, orderSummary.savedOrders.size)

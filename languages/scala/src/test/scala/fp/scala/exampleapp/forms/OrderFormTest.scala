@@ -36,23 +36,6 @@ class OrderFormTest {
   }
 
   @Test
-  def fromJsonForGoodOrder() {
-    OrderForm.fromJson(orderFormJson()) match {
-      case InvalidOrderForm(f) => fail("Order should be valid")
-      case ValidOrderForm(f) => assertEquals(orderForm(), f)
-    }
-  }
-
-  @Test
-  def fromJsonForBadOrder() {
-    val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
-    OrderForm.fromJson(badEmailJson) match {
-      case InvalidOrderForm(f) => assertEquals(List("All fields are required"), f.validationErrors)
-      case ValidOrderForm(f) => fail("Order should not be valid")
-    }
-  }
-
-  @Test
   def isValidForBadOrder() {
     val badEmailJson = orderFormJson().replace("johnsmith@domain.com", "")
     assertFalse(OrderForm.fromJson(badEmailJson).isValid())

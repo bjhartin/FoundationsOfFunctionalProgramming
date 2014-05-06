@@ -50,16 +50,3 @@ object OrderForm {
   }
 
 }
-
-// These allow us to pattern-match based on whether we have validation errors.
-// For example, case InvalidOrderForm(f) => ...
-//
-// If case classes supported inheritance, we wouldn't need these.
-
-object ValidOrderForm {
-  def unapply(o:OrderForm) = if (!o.validationErrors.isEmpty) None else Some(o)
-}
-
-object InvalidOrderForm {
-  def unapply(o:OrderForm) = if (o.validationErrors.isEmpty) None else Some(o)
-}
